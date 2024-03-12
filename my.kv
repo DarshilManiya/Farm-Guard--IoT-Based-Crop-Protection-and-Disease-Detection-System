@@ -1,0 +1,1008 @@
+#: import os os
+
+WindowManager:
+    Registration:
+    Login:
+    Home:
+    CameraCapture:
+    ImageUpload:
+    Prediction:
+    History:
+    FarmImages:
+
+<Registration>:
+    name: "registration"
+
+    GridLayout:
+        name: "window"
+        cols: 1
+        spacing: 30
+        size_hint: (0.8, 0.85)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Button:
+            name: "login_page"
+            text: "Login"
+            size_hint: (None, None)
+            width: 100
+            height: 50
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.direction = "left"
+
+        Label:
+            name: "greet"
+            text: "Welcome!"
+            font_size: 44
+            color: '#61fa7d'
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint: (1, 0.5)
+
+        Label:
+            name: "spacer2"
+            text: ""
+            size_hint: (1, 0.06)
+
+        Label:
+            name: "msg"
+            text: "If first time then: "
+            font_size: 20
+            color: 'white'
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint: (1, None)
+            height: 50
+
+        BoxLayout:
+            name: "r_layout1"
+            orientation: 'horizontal'
+            size_hint: (1, 0.1)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: 5
+
+            Label:
+                name: "nameLabel"
+                text: "Enter your name: "
+                font_size: 20
+                color: 'white'
+                size_hint: (0.3, 1)
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            TextInput:
+                name: "nameInput"
+                id: nameInput
+                background_color: "#202124"
+                foreground_color: "#61fa7d"
+                multiline: False
+                font_size: 18
+                size_hint: (0.7, None)
+                height: 40
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        BoxLayout:
+            name: "r_layout2"
+            orientation: 'horizontal'
+            size_hint: (1, 0.1)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: 5
+
+            Label:
+                name: "emailLabel"
+                text: "Enter your email ID: "
+                font_size: 20
+                color: 'white'
+                size_hint: (0.3, 1)
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            TextInput:
+                name: "emailInput"
+                id: emailInput
+                background_color: "#202124"
+                foreground_color: "#61fa7d"
+                multiline: False
+                font_size: 18
+                size_hint: (0.6, None)
+                height: 40
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        BoxLayout:
+            name: "r_layout3"
+            orientation: 'horizontal'
+            size_hint: (1, 0.1)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: 5
+
+            Label:
+                name: "passwordLabel"
+                text: "Enter your password: "
+                font_size: 20
+                color: 'white'
+                size_hint: (0.3, 1)
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            TextInput:
+                name: "passwordInput"
+                id: passwordInput
+                background_color: "#202124"
+                foreground_color: "#61fa7d"
+                multiline: False
+                font_size: 18
+                size_hint: (0.5, None)
+                height: 40
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        BoxLayout:
+            name: "r_layout4"
+            orientation: 'horizontal'
+            size_hint: (1, 0.1)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: 5
+
+            Label:
+                name: "addressLabel"
+                text: "Enter your District, State: "
+                font_size: 20
+                color: 'white'
+                size_hint: (0.3, 1)
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            TextInput:
+                name: "addressInput"
+                id: addressInput
+                background_color: "#202124"
+                foreground_color: "#61fa7d"
+                multiline: False
+                font_size: 18
+                size_hint: (0.4, None)
+                height: 40
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Label:
+            name: "spacer"
+            text: ""
+            size_hint: (1, 0.35)
+
+        BoxLayout:
+            name: "r_layout5"
+            orientation: 'horizontal'
+            size_hint: (1, 0.1)
+            pos_hint: {"center_x": 0.1, "center_y": 0.1}
+            spacing: 5
+
+            Label:
+                name: "spacer3"
+                text: ""
+                size_hint: (0.01, 0.1)
+
+            Button:
+                name: "submit"
+                text: "Submit"
+                bold: True
+                background_color: '#61fa7d'
+                size_hint: (None, None)
+                width: 150
+                height: 50
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release:
+                    app.root.current = "home" if root.check_re(nameInput, emailInput, addressInput, passwordInput) else "registration"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                name: "clear"
+                text: "Clear"
+                size_hint: (None, None)
+                width: 150
+                height: 50
+                bold: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release:
+                    root.clear_text_inputs()
+
+            Label:
+                name: "spacer4"
+                text: ""
+                size_hint: (0.01, 0.1)
+
+<Login>:
+    name: "login"
+
+    GridLayout:
+        name: "login_window"
+        cols: 1
+        spacing: 30
+        size_hint: (0.8, 0.85)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Button:
+            name: "back"
+            text: "Back"
+            size_hint: (None, None)
+            width: 100
+            height: 50
+            on_release:
+                app.root.current = "registration"
+                root.manager.transition.direction = "right"
+
+        Label:
+            name: "greet"
+            text: "Login"
+            font_size: 44
+            color: '#61fa7d'
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint: (1, 0.2)
+
+        Label:
+            name: "spacer2"
+            text: ""
+            size_hint: (1, 0.03)
+
+        Label:
+            name: "msg"
+            text: "Enter your credentials: "
+            font_size: 20
+            color: 'white'
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint: (1, None)
+            height: 50
+
+        BoxLayout:
+            name: "l_layout1"
+            orientation: 'horizontal'
+            size_hint: (1, 0.05)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: 5
+
+            Label:
+                name: "login_emailLabel"
+                text: "Enter your email ID: "
+                font_size: 20
+                color: 'white'
+                size_hint: (0.3, 1)
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            TextInput:
+                name: "login_emailInput"
+                id: login_emailInput
+                background_color: "#202124"
+                foreground_color: "#61fa7d"
+                multiline: False
+                font_size: 18
+                size_hint: (0.6, None)
+                height: 40
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        BoxLayout:
+            name: "l_layout2"
+            orientation: 'horizontal'
+            size_hint: (1, 0.05)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: 5
+
+            Label:
+                name: "login_passwordLabel"
+                text: "Enter your password: "
+                font_size: 20
+                color: 'white'
+                size_hint: (0.3, 1)
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            TextInput:
+                name: "login_passwordInput"
+                id: login_passwordInput
+                background_color: "#202124"
+                foreground_color: "#61fa7d"
+                multiline: False
+                font_size: 18
+                size_hint: (0.5, None)
+                height: 40
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        BoxLayout:
+            name: "l_layout3"
+            orientation: 'horizontal'
+            size_hint: (1, 0.2)
+            pos_hint: {"center_x": 0.1, "center_y": 0.1}
+            spacing: 5
+
+            Label:
+                name: "spacer11"
+                text: ""
+                size_hint: (0.01, 0.1)
+
+            Button:
+                name: "submit"
+                text: "Submit"
+                bold: True
+                background_color: '#61fa7d'
+                size_hint: (None, None)
+                width: 150
+                height: 50
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release:
+                    app.root.current = "home" if root.check_login(login_emailInput, login_passwordInput) else "login"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                name: "clear"
+                text: "Clear"
+                size_hint: (None, None)
+                width: 150
+                height: 50
+                bold: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release:
+                    root.clear_login_text_inputs()
+
+            Label:
+                name: "spacer12"
+                text: ""
+                size_hint: (0.01, 0.1)
+
+<Home>:
+    name: "home"
+
+    GridLayout:
+        name: "home_layout"
+        cols: 1
+        spacing: 10
+        size_hint: (0.8, 0.85)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Label:
+            name: "home_msg"
+            text: "Add image for disease recognition"
+            font_size: 28
+            color: '#61fa7d'
+            pos_hint: {"center_x": 0.5, "center_y": 1}
+            size_hint: (1, None)
+            height: 300
+
+        BoxLayout:
+            name: "h_layout1"
+            orientation: 'horizontal'
+            size_hint: (1, 0.1)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: 20
+
+            Button:
+                name: "camera_img"
+                text: "Capture from Camera"
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (0.3, 0.25)
+                on_release:
+                    app.root.current = "camera_capture"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                name: "gallery_img"
+                text: "Upload from Gallery"
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (0.3, 0.25)
+                on_release:
+                    app.root.current = "image_upload"
+                    root.manager.transition.direction = "left"
+
+        BoxLayout:
+            name: "h_layout2"
+            orientation: 'horizontal'
+            size_hint: (1, 0.1)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: 20
+
+            Button:
+                name: "history"
+                text: "History"
+                pos_hint: {"center_x": 0, "center_y": 0}
+                size_hint: (None, None)
+                width: 150
+                height: 50
+                on_release:
+                    app.root.current = "history"
+                    root.manager.transition.direction = "left"
+
+            Label:
+                name: "spacer12"
+                text: ""
+                size_hint: (0.4, 0.1)
+
+            Button:
+                name: "faemImageButton"
+                text: "Farm Images"
+                pos_hint: {"center_x": 0, "center_y": 0}
+                size_hint: (None, None)
+                width: 150
+                height: 50
+                on_release:
+                    app.root.current = "farmImages"
+                    root.manager.transition.direction = "left"
+
+<CameraCapture>:
+    name: "camera_capture"
+
+    GridLayout:
+        name: "camera_capture_layout"
+        cols: 1
+        spacing: 10
+        size_hint: (0.8, 0.85)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Button:
+            name: "camera_capture_back"
+            text: "Back"
+            size_hint: (None, None)
+            width: 100
+            height: 50
+            on_release:
+                app.root.current = "home"
+                root.manager.transition.direction = "right"
+
+        Label:
+            name: "camera_capture_msg"
+            text: "Capture image of crop disease"
+            font_size: 28
+            color: '#61fa7d'
+            pos_hint: {"center_x": 0.5, "center_y": 0.85}
+            size_hint: (1, 0.2)
+
+        Camera:
+            id: camera_widget
+            name: "camera"
+            resolution: (600, 600)
+            play: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint: (1, 1)
+
+        BoxLayout:
+            name: "c_layout"
+            orientation: 'horizontal'
+            size_hint: (1, 0.1)
+            pos_hint: {"center_x": 0.8, "center_y": 0.5}
+            spacing: 20
+
+            Label:
+                name: "spacer5"
+                text: ""
+                size_hint: (0.01, 0.1)
+
+            Button:
+                name: "capture_button"
+                text: "Capture"
+                pos_hint: {"center_x": 0.5, "center_y": 0.05}
+                size_hint: (None, None)
+                bold: True
+                background_color: "#61fa7d"
+                width: 150
+                height: 50
+                on_release:
+                    root.capture_image(camera_widget)
+
+            Button:
+                name: "flip_button"
+                text: "Flip Camera"
+                pos_hint: {"center_x": 0.5, "center_y": 0.05}
+                size_hint: (None, None)
+                bold: True
+                width: 150
+                height: 50
+                on_release:
+                    root.flip_image(camera_widget)
+
+            Button:
+                name: "c_submit_button"
+                text: "Submit Image"
+                pos_hint: {"center_x": 0.5, "center_y": 0.05}
+                size_hint: (None, None)
+                bold: True
+                width: 150
+                height: 50
+                on_release:
+                    root.save_image()
+                    app.root.current = "prediction"
+                    root.manager.transition.direction = "left"
+
+            Label:
+                name: "spacer6"
+                text: ""
+                size_hint: (0.01, 0.1)
+
+<ImageUpload>:
+    name: "image_upload"
+
+    GridLayout:
+        name: "image_upload_layout"
+        cols: 1
+        spacing: 10
+        size_hint: (0.8, 0.85)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Button:
+            name: "image_upload_back"
+            text: "Back"
+            size_hint: (None, None)
+            width: 100
+            height: 50
+            on_release:
+                app.root.current = "home"
+                root.manager.transition.direction = "right"
+
+        Label:
+            name: "image_upload_msg"
+            text: "Select Image from the Device"
+            font_size: 28
+            color: '#61fa7d'
+            pos_hint: {"center_x": 0.5, "center_y": 0.85}
+            size_hint: (1, 0.2)
+
+        BoxLayout:
+            name: "i_layout"
+            orientation: 'horizontal'
+            size_hint: (1, 0.5)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: 20
+
+            Label:
+                name: "selected_image_label"
+                text: "Selected Image: "
+                font_size: 20
+                color: '#61fa7d'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (0.3, 1)
+
+            Image:
+                id: image_widget
+                name: "selected_image"
+                source: 'img.png'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (0.7, 0.5)
+
+        BoxLayout:
+            name: "i_layout1"
+            orientation: 'horizontal'
+            size_hint: (1, 0.2)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: 20
+
+            Label:
+                name: "spacer9"
+                text: ""
+                size_hint: (0.2, 1)
+
+            Button:
+                name: "choose_image_button"
+                text: "Choose Image"
+                pos_hint: {"center_x": 0.5, "center_y": 0.05}
+                size_hint: (None, None)
+                background_color: "#61fa7d"
+                bold: True
+                width: 150
+                height: 50
+                on_release:
+                    root.choose_image(image_widget)
+
+            Button:
+                name: "submit_image_button"
+                text: "Submit Image"
+                pos_hint: {"center_x": 0.5, "center_y": 0.05}
+                size_hint: (None, None)
+                bold: True
+                width: 150
+                height: 50
+                on_release:
+                    root.save_uploaded_image()
+                    app.root.current = "prediction"
+                    root.manager.transition.direction = "left"
+
+            Label:
+                name: "spacer9"
+                text: ""
+                size_hint: (0.2, 1)
+
+<Prediction>:
+    name: "prediction"
+    GridLayout:
+        name: "prediction_layout"
+        cols: 1
+        spacing: 10
+        size_hint: (0.8, 0.85)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Button:
+            name: "prediction_back"
+            text: "Back"
+            size_hint: (None, None)
+            width: 100
+            height: 50
+            on_release:
+                app.root.current = "home"
+                root.manager.transition.direction = "right"
+
+        Label:
+            name: "prediction_msg"
+            text: "Disease Prediction"
+            font_size: 28
+            color: '#61fa7d'
+            pos_hint: {"center_x": 0.5, "center_y": 0.85}
+            size_hint: (1, 0.2)
+
+        AsyncImage:
+            id: p_image_widget
+            name: "predicted_image"
+            source: 'img.png'
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint: (0.7, 0.5)
+
+        Label:
+            id: p_label_widget
+            name: "predicted_diseases_msg"
+            text: "Wait for a while"
+            font_size: 18
+            pos_hint: {"center_x": 0.5, "center_y": 0.85}
+            size_hint: (1, 0.2)
+
+        Label:
+            name: "predicted_diseases_description"
+            text: "Click hear for disease cure"
+            markup: True
+            font_size: 18
+            color: (0, 0.5, 1, 1)
+            pos_hint: {"center_x": 0.5, "center_y": 0.85}
+            size_hint: (1, 0.2)
+            on_touch_up:
+                root.on_link_click(p_label_widget, *args)
+
+        Button:
+            name: "prediction_button"
+            text: "Start"
+            size_hint: (None, None)
+            width: 100
+            height: 50
+            on_release:
+                root.disease_pred(p_image_widget, p_label_widget)
+
+<History>:
+    name: "history"
+    ScrollView:
+        do_scroll_y: True
+        do_scroll_x: False
+        size_hint: (0.9, 0.95)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        GridLayout:
+            name: "history_layout"
+            cols: 1
+            spacing: 10
+            size_hint_y: None
+            #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            height: self.minimum_height
+
+            Label:
+                name: "spacer8"
+                text: ""
+                size_hint: (1, None)
+                height: 30
+
+            BoxLayout:
+                name: "i_layout1"
+                orientation: 'horizontal'
+                size_hint: (1, 0.2)
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                spacing: 20
+
+                Label:
+                    name: "spacer15"
+                    text: ""
+                    size_hint: (1, None)
+                    height: 30
+
+                Button:
+                    name: "history_back"
+                    text: "Back"
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    size_hint: (None, None)
+                    width: 100
+                    height: 50
+                    on_release:
+                        app.root.current = "home"
+                        root.manager.transition.direction = "right"
+
+                Button:
+                    name: "load_history"
+                    text: "Load History"
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    size_hint: (None, None)
+                    width: 100
+                    height: 50
+                    on_release:
+                        root.load_images(h_img1, h_img2, h_img3, h_img4, h_img5, ind1, ind2, ind3, ind4, ind5)
+
+                Label:
+                    name: "spacer16"
+                    text: ""
+                    size_hint: (1, None)
+                    height: 30
+
+            Label:
+                name: "spacer17"
+                text: ""
+                size_hint: (1, None)
+                height: 30
+
+            Label:
+                id: ind1
+                name: "index1"
+                text: "1."
+                font_size: 16
+                #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (None, None)
+                width: 550
+                height: 50
+
+            AsyncImage:
+                id: h_img1
+                name: "image1"
+                source: 'img.png'
+                size_hint: (None, None)
+                width: 550
+                height: 350
+
+            Label:
+                id: des1
+                name: "description1"
+                text: "Disease Cure link"
+                markup: True
+                color: (0, 0.5, 1, 1)
+                font_size: 18
+                #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (None, None)
+                width: 150
+                height: 50
+                on_touch_up: root.on_link_click1(*args)
+
+            Label:
+                id: ind2
+                name: "index2"
+                text: "2."
+                font_size: 16
+                #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (None, None)
+                width:550
+                height: 50
+
+            AsyncImage:
+                id: h_img2
+                name: "image2"
+                source: 'img.png'
+                size_hint: (None, None)
+                width: 550
+                height: 350
+
+            Label:
+                id: des2
+                name: "description2"
+                text: "Disease Cure link"
+                markup: True
+                color: (0, 0.5, 1, 1)
+                font_size: 18
+                #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (None, None)
+                width: 150
+                height: 50
+                on_touch_up: root.on_link_click2(*args)
+
+            Label:
+                id: ind3
+                name: "index3"
+                text: "3."
+                font_size: 16
+                #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (None, None)
+                width: 550
+                height: 50
+
+            AsyncImage:
+                id: h_img3
+                name: "image3"
+                source: 'img.png'
+                size_hint: (None, None)
+                width: 550
+                height: 350
+
+            Label:
+                id: des3
+                name: "description3"
+                text: "Disease Cure link"
+                markup: True
+                color: (0, 0.5, 1, 1)
+                font_size: 18
+                #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (None, None)
+                width: 150
+                height: 50
+                on_touch_up: root.on_link_click3(*args)
+
+            Label:
+                id: ind4
+                name: "index4"
+                text: "4."
+                font_size: 16
+                #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (None, None)
+                width: 550
+                height: 50
+
+            AsyncImage:
+                id: h_img4
+                name: "image4"
+                source: 'img.png'
+                size_hint: (None, None)
+                width: 550
+                height: 350
+
+            Label:
+                id: des4
+                name: "description4"
+                text: "Disease Cure link"
+                markup: True
+                color: (0, 0.5, 1, 1)
+                font_size: 18
+                #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (None, None)
+                width: 150
+                height: 50
+                on_touch_up: root.on_link_click4(*args)
+
+            Label:
+                id: ind5
+                name: "index5"
+                text: "5."
+                font_size: 16
+                #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (None, None)
+                width: 550
+                height: 50
+
+            AsyncImage:
+                id: h_img5
+                name: "image5"
+                source: 'img.png'
+                size_hint: (None, None)
+                width: 550
+                height: 350
+
+            Label:
+                id: des5
+                name: "description5"
+                text: "Disease Cure link"
+                markup: True
+                color: (0, 0.5, 1, 1)
+                font_size: 18
+                #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: (None, None)
+                width: 150
+                height: 50
+                on_touch_up: root.on_link_click5(*args)
+
+<FarmImages>:
+    name: "farmImages"
+    ScrollView:
+        do_scroll_y: True
+        do_scroll_x: False
+        size_hint: (0.9, 0.95)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        GridLayout:
+            name: "farmImages_layout"
+            cols: 1
+            spacing: 10
+            size_hint_y: None
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            height: self.minimum_height
+
+            BoxLayout:
+                name: "f_layout1"
+                orientation: 'horizontal'
+                size_hint: (1, None)
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                spacing: 20
+
+                Label:
+                    name: "spacer15"
+                    text: ""
+                    size_hint: (1, None)
+                    height: 30
+
+                Button:
+                    name: "farmImage_back"
+                    text: "Back"
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    size_hint: (None, None)
+                    width: 100
+                    height: 50
+                    on_release:
+                        app.root.current = "home"
+                        root.manager.transition.direction = "right"
+
+                Button:
+                    name: "farmImage_history"
+                    text: "Load Farm Images"
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    size_hint: (None, None)
+                    width: 150
+                    height: 50
+                    on_release:
+                        root.load_farmImages(f_img1, f_img2, f_img3, f_img4, f_img5)
+
+                Label:
+                    name: "spacer16"
+                    text: ""
+                    size_hint: (1, None)
+                    height: 30
+
+            Label:
+                name: "spacer17"
+                text: ""
+                size_hint: (1, None)
+                height: 30
+
+            AsyncImage:
+                id: f_img1
+                name: "image1"
+                source: 'img.png'
+                size_hint: (None, None)
+                width: 550
+                height: 350
+
+            Label:
+                name: "spacer15"
+                text: ""
+                size_hint: (1, None)
+                height: 30
+
+            AsyncImage:
+                id: f_img2
+                name: "image2"
+                source: 'img.png'
+                size_hint: (None, None)
+                width: 550
+                height: 350
+
+            Label:
+                name: "spacer15"
+                text: ""
+                size_hint: (1, None)
+                height: 30
+
+            AsyncImage:
+                id: f_img3
+                name: "image3"
+                source: 'img.png'
+                size_hint: (None, None)
+                width: 550
+                height: 350
+
+            Label:
+                name: "spacer15"
+                text: ""
+                size_hint: (1, None)
+                height: 30
+
+            AsyncImage:
+                id: f_img4
+                name: "image4"
+                source: 'img.png'
+                size_hint: (None, None)
+                width: 550
+                height: 350
+
+            Label:
+                name: "spacer15"
+                text: ""
+                size_hint: (1, None)
+                height: 30
+
+            AsyncImage:
+                id: f_img5
+                name: "image5"
+                source: 'img.png'
+                size_hint: (None, None)
+                width: 550
+                height: 350

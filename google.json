@@ -1,0 +1,14 @@
+{
+  "type": "service_account",
+  "project_id": "smart-fence-cd01a",
+  "private_key_id": "4d224cb33c0a93cead8c1e8705d654260e2a79d0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCzzTGhB9jqyyAI\nS0Z8YvtUDf32VZCA8iWpcIsR5iFsSSp4KSBL6ua5FkyKOA0mre+ezivkqVUmzXe1\nV6eD9M3yRt6U+T5Jm0koD6CbGnpprtWYCIsdqu28gwm16AUs0V/4/4P1EdXSueo3\nrPQCvKXJ0COXQQXvQT9QIX78zDQhbQrnBn8tdOV1tR9W4GsJ7f7Tys0f+46e/9m0\naMYd8XJk2KrCd+E/8+8AkBxG12BLmCLYwo5cAWnUqHjmWCuvifBLnXBErvHeSGax\n/riE0k08rewP00lM7GPLOlieML/RjeKPKoeNDN9WuepelqRwyNCc4HmBplvh3hm2\njC7utfrdAgMBAAECggEABFFRWa2OdrbNRQSmzjqZEGIH5nElXikycd0W9y33/MRE\n46VVtiz+Ysgs3koJSb5lENgYIjUAgMUA8qxb82nA9k6bkJZSLQbKB7V6wr/O7Q+h\nGrYXaNxF9hV8rNehztk2Bb//+KT3sr/Hs3HVOQd4FkCY68xZoiqPCxfL5DqnyOKY\nXJXy2dEUrT8pR27HfKDmKPNZiWi/99bfwIJZQDaxL5Srtitev3ZFuUqOjwkXGVQY\nCz76jnocenXdcOfECiAzYpGWAdurtB0JtzXMoCbN2H3hfprc6v5FK9D+2iuDqHLX\ns80JdatM03Wzcu+JFTGVYRQVG0yz3jmOyqnn2F9BGwKBgQDl6BjNL20WqwWFUeaY\nntpzy5XJElnJVJR/qSgEOwsNfpa4YKIMf57SeYOsLoW0K8yVC9p6kQdkG6njbsyH\nEs6AFcDpkaA81SlLrJwoYAX6gedGzJwXcvtXDfaBvsrqS2NK+q38z0gSMFJ7vmkR\n+1NjitZKhRlchHR+46e2eCen/wKBgQDINU0OPE+BzsuU5BdkQkVZI7DZ1OEqbC0/\nMh6ToUSGM6lh8u/xFSpcAvXtbmOZHF0wVLKEHGAENYJRG7ag7S5GKnq9dPRqYocE\nmQIjmTxeYfX6fdehKSKhjKCmxErEY/O0k5R7bCeGWPpu1Ml9q6/AhPnIoORM/vmD\nfmzht739IwKBgEkNLpRD9Y22WdK662KjVxZkIfv58L2gOm81+JkfiauIBawgSF1g\nT77hDY2wWpudLyxMz+cSHh8ZCypREnv45dSdFOcidp/du3loJ1ZM7JlknXBJo29w\nAZzvutwPG7rGqY4xiQdDdcsRv6PCJPCpwx1mCCE1mZFkJQAMpkW8eB1RAoGBAMNS\nBM/rlOGeH00tzYhZgxB42nNZ1SYvDWGHAv+iKJkI06okeWPo8z96//RYasCYRG3/\nY32xtRbGIVIByIVtf2Si0sX80OrtHq4knEqgl5240mJD3Vd0Kz4SVTT9cbfxj3PP\nOt/CXzkZm5D+9WguVDNtR8cs+C4J3uEjORRozuijAoGBAOIkW2q4WDmvUjU3AycF\nQS47LofUEq7qQqUOHmLPrt5Dd/ovogPkr405PlGYkP8PR1Enr/DpOUcaTZoza2HA\nsg+QTQPmf1IbSJY7Hn60bq7JyetnksrynIj2F+mslDDl9gHR4raYF5OLG2c7L0H2\nzJ5cMFfhBY6ftYt7zjQjojj1\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-7zb2m@smart-fence-cd01a.iam.gserviceaccount.com",
+  "client_id": "115188410162053111450",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-7zb2m%40smart-fence-cd01a.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com",
+  "storageBucket":"gs://smart-fence-cd01a.appspot.com"
+}
